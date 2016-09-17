@@ -15,6 +15,51 @@ import android.widget.TextView;
 
 /**
  * Created by wangxing on 16/9/4.
+ * 本dialog的特点在于是自下而上滑入屏幕
+ * 关于滑入的实现在本类的构造方法中。。。其步骤这里就不再赘述，直接谈谈怎么使用
+ * 使用方法：
+ *       0.把本类以及anim文件夹中的dialog_slide_down.xml、dialog_slide_up.xml
+ *         还有layout文件夹中的slide_default_dialog.xml、slide_dialog_layout.xml、slide_progress_dialog.xml全部照办到你自己的项目中
+ *         嗯嗯我知道。。。你们肯定会觉得很麻烦，这不符合程序员偷懒的目的（放心啦。。。以后继续完善之后我会退出aar包给你们直接导入的
+ *       1.final SlideDialog slideDialog1 = new SlideDialog(getContext());
+ *          slideDialog1.setContentView(SlideDialog.DEFAULT);
+ *
+ *          slideDialog1.setTitles("默认的对话框");
+ *          slideDialog1.setMessage("默认情况下弹出的对话框");
+ *
+ *          slideDialog1.setCenterButtonVisible(View.GONE);
+ *
+ *          slideDialog1.setRightButton("CANCEL", new View.OnClickListener() {
+ *               @Override
+ *               public void onClick(View v) {
+ *                   slideDialog1.dismiss();
+ *               }
+ *          });
+ *          slideDialog1.show();
+ *
+ *         SlideDialog slideDialog = new SlideDialog(getContext());
+//
+//         slideDialog.setContentView(SlideDialog.PROGRESS);
+//
+//         slideDialog.setTitles("进度条对话框");
+//
+//         slideDialog.setMaxProgress(100);
+//         slideDialog.setProgress(87);
+//
+//         slideDialog.show();
+ *
+ *
+ *          ok，楼上的代码大家也都看得到，简单粗暴。。。也没什么太多需要讲的
+ *         重点基本在于setContentView方法。。。这个方法内，我留了比较大的发展空间哦
+ *         第一，你可以使用我已经定义好的两个基本布局，public static final int PROGRESS = R.layout.slide_progress_dialog;
+ *                                               public static final int DEFAULT = R.layout.slide_default_dialog;
+ *         顾名思义，Progress的那个自然是代表了一个进度条，没错如果你选择它。。。那弹出来就是一个进度条（反正用法和普通进度条没什么区别
+ *
+ *         还有个default。。。这个布局就很简单啦，就是弹出一段文本给用户
+ *         如果这两个布局不满足你的需求，你还是可以自定义哒。。。比如自己设置好一个布局，然后通过setContentView方法添加到dialog中
+ *         需要注意的是，你添加的布局已经不需要再有一个title标题和底部的按钮了。。。只需要有展示给用户的内容就可以了
+ *         (我还会按照使用的频率。。。继续更新一下常用的dialog布局)
+ *
  */
 public class SlideDialog extends Dialog{
 
@@ -168,6 +213,9 @@ public class SlideDialog extends Dialog{
     public void setMessage(String s){
         defaultText.setText(s);
     }
+
+    //＝＝＝＝＝＝＝＝＝＝＝＝＝分割线＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+    //以下都是通用的属性设置，包括按钮的颜色、文本、单击事件监听以及整个dialog的背景色之类的设置都在这下面
 
     /**
      * @param color 设置整个dialog的大背景（一般没什么卵用
