@@ -15,20 +15,13 @@
         android:text="Hello World!" />
 
     <Button
-<<<<<<< HEAD
         android:id="@+id/hp_button"
         android:text="测试HeartProgress"
         android:layout_below="@id/textview"
-=======
-        android:id="@+id/button"
-        android:layout_below="@id/textview"
-        android:text="test"
->>>>>>> d7e4bf290b6ae47e8eb639ae9397951df04d5e49
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <Button
-<<<<<<< HEAD
         android:id="@+id/sd_button"
         android:text="测试SlideDialog"
         android:layout_width="wrap_content"
@@ -51,23 +44,5 @@
         android:text="测试IconView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-=======
-        android:id="@+id/button2"
-        android:layout_below="@id/button"
-        android:text="progressDialog"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <com.xing.app.xframework.HeartProgress
-        android:layout_width="100dp"
-        android:layout_height="100dp"/>
-
-    <com.xing.app.xframework.HeartProgress
-        android:id="@+id/testView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-
->>>>>>> d7e4bf290b6ae47e8eb639ae9397951df04d5e49
 
 </LinearLayout>

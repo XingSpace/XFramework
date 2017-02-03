@@ -7,11 +7,6 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> d7e4bf290b6ae47e8eb639ae9397951df04d5e49
     <style name="SlideDialog" parent="@android:style/Theme.Dialog">
         <item name="android:windowAnimationStyle">@style/SlideDialogAnimation</item>
         <item name="android:windowIsTranslucent">true</item>
