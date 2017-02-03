@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<<<<<<< HEAD
     xmlns:app="http://schemas.android.com/apk/res-auto"
+=======
+>>>>>>> d7e4bf290b6ae47e8eb639ae9397951df04d5e49
     android:id="@+id/root"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -76,7 +79,11 @@
                 android:layout_marginRight="5dp"
                 android:src="@drawable/more_image"
                 android:layout_width="wrap_content"
+<<<<<<< HEAD
                 android:layout_height="match_parent" />
+=======
+                android:layout_height="24dp" />
+>>>>>>> d7e4bf290b6ae47e8eb639ae9397951df04d5e49
 
         </LinearLayout>
 

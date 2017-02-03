@@ -3,13 +3,22 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 24
     buildToolsVersion "23.0.1"
+<<<<<<< HEAD
     defaultConfig {
         applicationId "com.xing.work.xframework"
+=======
+
+    defaultConfig {
+        applicationId "com.xing.app.xframework"
+>>>>>>> d7e4bf290b6ae47e8eb639ae9397951df04d5e49
         minSdkVersion 15
         targetSdkVersion 24
         versionCode 1
         versionName "1.0"
+<<<<<<< HEAD
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+=======
+>>>>>>> d7e4bf290b6ae47e8eb639ae9397951df04d5e49
     }
     buildTypes {
         release {
@@ -21,9 +30,14 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+<<<<<<< HEAD
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:24.2.0'
     testCompile 'junit:junit:4.12'
+=======
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:24.2.0'
+>>>>>>> d7e4bf290b6ae47e8eb639ae9397951df04d5e49
 }

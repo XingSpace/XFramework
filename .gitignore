@@ -6,4 +6,7 @@
 .DS_Store
 /build
 /captures
+<<<<<<< HEAD
 .externalNativeBuild
+=======
+>>>>>>> d7e4bf290b6ae47e8eb639ae9397951df04d5e49
