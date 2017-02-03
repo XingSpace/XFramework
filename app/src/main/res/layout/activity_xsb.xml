@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.xing.work.xframework.XSeekBar
+        app:xs_MaxColor="@color/colorPrimaryDark"
+        app:xs_progress="40"
+        android:id="@+id/xsb1"
+        android:padding="10dp"
+        app:xs_SCircleColor="@android:color/holo_orange_light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.xing.work.xframework.XSeekBar
+        app:xs_progress="90"
+        android:id="@+id/xsb2"
+        app:xs_BCircleColor="@android:color/darker_gray"
+        app:xs_radius="17dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <SeekBar
+        android:max="10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.xing.work.xframework.XSeekBar
+            android:id="@+id/xsb3"
+            app:xs_orientation="vertical"
+            app:xs_progress="0"
+            android:padding="20dp"
+            app:xs_ProgressColor="@color/colorAccent"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/text"
+            android:text="测试"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.xing.work.xframework.XSeekBar
+            android:id="@+id/xsb4"
+            app:xs_orientation="vertical"
+            app:xs_progress="30"
+            app:xs_radius="20dp"
+            app:xs_ProgressHeight="15dp"
+            app:xs_MaxHeight="10dp"
+            android:paddingTop="20dp"
+            app:xs_ProgressColor="@color/colorAccent"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+</LinearLayout>
