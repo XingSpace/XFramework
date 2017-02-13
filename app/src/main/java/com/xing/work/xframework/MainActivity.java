@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends ActivityBase implements View.OnClickListener{
-    private Button button,button2,button3,button4,button5;
+    private Button button,button2,button3,button4,button5,button6;
 
     private int i = 0;
 
@@ -23,11 +23,13 @@ public class MainActivity extends ActivityBase implements View.OnClickListener{
         button3 = (Button)findViewById(R.id.xlv_button);
         button4 = (Button)findViewById(R.id.xsb_button);
         button5 = (Button)findViewById(R.id.iv_button);
+        button6 = (Button)findViewById(R.id.shadow_button);
         button.setOnClickListener(this);
         button2.setOnClickListener(this);
         button3.setOnClickListener(this);
         button4.setOnClickListener(this);
         button5.setOnClickListener(this);
+        button6.setOnClickListener(this);
 
     }
 
@@ -67,6 +69,11 @@ public class MainActivity extends ActivityBase implements View.OnClickListener{
 
             case R.id.iv_button:
                 intent.setClass(getContext(),ActivityIV.class);
+                startActivity(intent);
+                break;
+
+            case R.id.shadow_button:
+                intent.setClass(getContext(),ActivityShadow.class);
                 startActivity(intent);
                 break;
         }

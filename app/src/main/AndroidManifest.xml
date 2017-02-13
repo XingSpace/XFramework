@@ -27,6 +27,8 @@
         <activity android:name=".ActivityXsb"/>
 
         <activity android:name=".ActivityIV"/>
+
+        <activity android:name=".ActivityShadow"/>
     </application>
 
 </manifest>

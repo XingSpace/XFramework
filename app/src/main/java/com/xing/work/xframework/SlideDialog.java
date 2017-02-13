@@ -151,10 +151,6 @@ public class SlideDialog extends Dialog{
                 break;
         }
 
-//        defaultText.setText("");
-//        frameLayout.addView(LayoutInflater.from(mContext).inflate(layoutResID,null)
-//                ,new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT));
-
     }
 
     /**
