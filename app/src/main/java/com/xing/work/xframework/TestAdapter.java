@@ -1,6 +1,7 @@
 package com.xing.work.xframework;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -65,21 +66,21 @@ public class TestAdapter extends BaseAdapter implements RefreshAdapter{
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-//        ViewHolder viewHolder = new ViewHolder();
-//
-//        if (convertView == null){
-//            convertView = LayoutInflater.from(context).inflate(R.layout.test_item,parent,false);
-//            viewHolder.textView = (TextView) convertView.findViewById(R.id.text);
-//            convertView.setTag(viewHolder);
-//        }else {
-//            viewHolder = (ViewHolder) convertView.getTag();
-//        }
-//
-//        viewHolder.textView.setText("测试数据   "+ list.get(position));
+        ViewHolder viewHolder = new ViewHolder();//测试的时候才能在这里new对象
 
         if (convertView == null){
-            convertView = new SideslipItem(context);
+            convertView = LayoutInflater.from(context).inflate(R.layout.test_item,parent,false);
+            viewHolder.textView = (TextView) convertView.findViewById(R.id.text);
+            convertView.setTag(viewHolder);
+        }else {
+            viewHolder = (ViewHolder) convertView.getTag();
         }
+
+        viewHolder.textView.setText("测试数据   "+ list.get(position));
+
+//        if (convertView == null){
+//            convertView = new SideslipItem(context);
+//        }
 
         return convertView;
     }

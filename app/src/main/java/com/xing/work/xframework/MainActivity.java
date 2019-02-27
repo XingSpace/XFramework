@@ -75,6 +75,24 @@ public class MainActivity extends ActivityBase implements View.OnClickListener{
             case R.id.shadow_button:
                 intent.setClass(getContext(),ActivityShadow.class);
                 startActivity(intent);
+
+//                final SlideDialog slideDialog1 = new SlideDialog(getContext());
+//
+//                slideDialog1.setContentView(SlideDialog.DEFAULT);
+//
+//                slideDialog1.setTitles("默认的对话框");
+//                slideDialog1.setMessage("默认情况下弹出的对话框");
+//
+//                slideDialog1.setCenterButtonVisible(View.GONE);
+//
+//                slideDialog1.setRightButton("CANCEL", new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        slideDialog1.dismiss();
+//                    }
+//                });
+//
+//                slideDialog1.show();
                 break;
         }
     }

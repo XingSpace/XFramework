@@ -35,7 +35,7 @@ public class XListView extends ListView implements AbsListView.OnScrollListener,
 
     private int headerHeight;//头部下拉的高度
 
-    private int footerHetght;
+    private int footerHeight;
 
     private OnPullDownListener onPullDownListener;//监听下拉数据的监听,一共四个回调方法
 
@@ -109,8 +109,8 @@ public class XListView extends ListView implements AbsListView.OnScrollListener,
     public void setFooter(View view){
         footer = view;
         measureView(footer);
-        footerHetght = footer.getMeasuredHeight();
-        footer.setPadding(0,-footerHetght,0,0);
+        footerHeight = footer.getMeasuredHeight();
+        footer.setPadding(0,0,0,-footerHeight);
         footer.invalidate();
         addFooterView(footer,null,false);
     }
@@ -148,6 +148,9 @@ public class XListView extends ListView implements AbsListView.OnScrollListener,
         child.measure(childWidth, childHeight);
     }
 
+    /**
+     * @param adapter 考虑到下拉刷新功能,最好是有一个refresh功能的adapter进行适配
+     */
     @Override
     public void setAdapter(ListAdapter adapter) {
         super.setAdapter(adapter);
@@ -178,11 +181,12 @@ public class XListView extends ListView implements AbsListView.OnScrollListener,
             down_isRefreshable = false;
         }
 
-        if (firstVisibleItem+visibleItemCount == totalItemCount & getFooter() != null){
+        if (firstVisibleItem+visibleItemCount >= totalItemCount-1 & getFooter() != null){
             up_isRefreshable = true;
         }else {
             up_isRefreshable = false;
         }
+        Log.d("测试上拉刷新",": "+up_isRefreshable);
     }
 
     private int initX,initY;
@@ -196,39 +200,32 @@ public class XListView extends ListView implements AbsListView.OnScrollListener,
             case MotionEvent.ACTION_DOWN:
                 initX = (int) ev.getX();
                 initY = (int) ev.getY();
+                downPull(ev);
+                upPull(ev);
                 break;
 
             case MotionEvent.ACTION_MOVE:
-
-                if (!isSliding){
-                    //如果还未在滑动过程中,才能进行如下判断(判断是上下滑动,还是侧滑
-                    if ( Math.abs(initX-ev.getX()) > 10
-                            || Math.abs(initY-ev.getY()) > 10){
-
-                        if (Math.abs(initX-ev.getX()) > Math.abs(initY-ev.getY())){
-                            isSideslip = true;
-                            return false;
-                        }else {
-                            isSideslip = false;
-                        }
-
-                    }
-                }else {
-                    //已在滑动过程中,就根据isSideslip判断如何返回
-                    if (isSideslip){
-                        return false;
-                    }else {
-                        //正常上下滑动。。。
-                        if (down_isRefreshable) {
-                            downPull(ev);
-                        }
-
-                        if (up_isRefreshable){
-                            upPull(ev);
-                        }
-                    }
+                if (Math.abs((float) initY-ev.getY()) < 10 ){
+                    break;//防止手指一放上去就开始刷新操作
+                }
+                //正常上下滑动。。。
+                if (down_isRefreshable) {
+                    downPull(ev);
                 }
 
+                if (up_isRefreshable){
+                    upPull(ev);
+                    Log.d("测试上拉刷新"," 执行到了第一步");
+                }
+                break;
+            case MotionEvent.ACTION_UP:
+                if (down_isRefreshable){
+                    downPull(ev);
+                }
+                if (up_isRefreshable){
+                    upPull(ev);
+                    Log.d("测试上拉刷新", "执行到了手指移开 + onTouchEvent");
+                }
                 break;
         }
 
@@ -257,12 +254,15 @@ public class XListView extends ListView implements AbsListView.OnScrollListener,
                 break;
 
             case MotionEvent.ACTION_MOVE:
-
+                Log.d("测试上拉刷新"," 执行到了upPull的MOVE中来");
                 int tempY = (int) ev.getY();
                 int temp = (startY-tempY)/RATIO;
+                Log.d("测试上拉刷新",temp+ " "+tempY+" "+startY);
                 switch (up_state){
 
                     case UP_DONE:
+                        Log.d("测试上拉刷新"," 执行到了upPull的DONE中来");
+                        Log.d("测试上拉刷新",-footerHeight+" "+temp);
                         if (temp > 0){
                             up_state = UP_PULL_To_REFRESH;
                             changeFooterViewState();
@@ -270,9 +270,10 @@ public class XListView extends ListView implements AbsListView.OnScrollListener,
                         break;
 
                     case UP_RELEASE_To_REFRESH:
-                        footer.setPadding(0,0,0,temp - footerHetght);
-
-                        if (temp <footerHetght && temp != 0){
+                        footer.setPadding(0,0,0,-footerHeight +temp);
+                        Log.d("测试上拉刷新"," 执行到了upPull的RELEASH To REFRESH中来");
+                        Log.d("测试上拉刷新",-footerHeight+" "+temp);
+                        if (temp < footerHeight && temp != 0){
                             up_state = UP_PULL_To_REFRESH;
                             changeFooterViewState();
                         }
@@ -286,8 +287,9 @@ public class XListView extends ListView implements AbsListView.OnScrollListener,
                         break;
 
                     case UP_PULL_To_REFRESH:
-                        footer.setPadding(0,0,0,temp-footerHetght);
-
+                        footer.setPadding(0,0,0,-footerHeight +temp);
+                        Log.d("测试上拉刷新"," 执行到了upPull的PULL To REFRESH中来");
+                        Log.d("测试上拉刷新",-footerHeight+" "+temp);
                         if (temp > 0){
                             up_state = UP_PULL_To_REFRESH;
                             changeFooterViewState();
@@ -296,7 +298,7 @@ public class XListView extends ListView implements AbsListView.OnScrollListener,
                             changeFooterViewState();
                         }
 
-                        if (temp > footerHetght){
+                        if (temp > footerHeight){
                             up_state = UP_RELEASE_To_REFRESH;
                             changeFooterViewState();
                         }
@@ -319,6 +321,7 @@ public class XListView extends ListView implements AbsListView.OnScrollListener,
 
             case MotionEvent.ACTION_DOWN:
                 startY = (int) ev.getY();
+                Log.d("测试下拉刷新"," "+startY);
                 break;
 
             case MotionEvent.ACTION_UP:
@@ -405,6 +408,7 @@ public class XListView extends ListView implements AbsListView.OnScrollListener,
             case DOWN_REFRESHING:
                 header.setPadding(0, 0, 0, 0);
 //                textView.setText("正在刷新");
+
                 if (onPullDownListener != null) {
                     onPullDownListener.onPullDownRefreshing(header);
                 }
@@ -430,7 +434,7 @@ public class XListView extends ListView implements AbsListView.OnScrollListener,
         switch (up_state){
 
             case UP_DONE:
-                footer.setPadding(0,0,0,-footerHetght);
+                footer.setPadding(0,0,0,-footerHeight);
                 if (onPullUpListener!=null){
                     onPullUpListener.onPullUpDone(footer);
                 }
@@ -461,11 +465,13 @@ public class XListView extends ListView implements AbsListView.OnScrollListener,
     //刷新完成之后需要调用本方法使头文件归位
     public void onPullDownRefreshComplete() {
         down_state = DOWN_DONE;
+        down_isRefreshable = false;
         changeHeaderViewState();
     }
 
     public void onPullUpRefreshComplete(){
         up_state = UP_DONE;
+        up_isRefreshable = false;
         changeFooterViewState();
     }
 

@@ -33,18 +33,18 @@ public class ShadowTest extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        Paint mPaint = new Paint();
+        Paint mPaint = new Paint();//测试的时候才能把new Paint放在onDraw里面
         mPaint.setAntiAlias(true);
         mPaint.setColor(Color.rgb(0x00,0xdd,0xff));
         canvas.drawRect(0,0,720,1200,mPaint);
 
         Paint paint=new Paint();  //定义一个Paint
         paint.setAntiAlias(true);
-        Shader mShader = new RadialGradient(300,300,120,new int[]{Color.argb(100,0x00,0x00,0x00),Color.argb(0,0xff,0xff,0xff)},new float[]{0.9f,1f},Shader.TileMode.MIRROR);
+        Shader mShader = new RadialGradient(300,300,122,new int[]{Color.argb(100,0x00,0x00,0x00),Color.argb(0,0xff,0xff,0xff)},new float[]{0.9f,1f},Shader.TileMode.MIRROR);
 //新建一个线性渐变，前两个参数是渐变开始的点坐标，第三四个参数是渐变结束的点的坐标。连接这2个点就拉出一条渐变线了，玩过PS的都懂。然后那个数组是渐变的颜色。下一个参数是渐变颜色的分布，如果为空，每个颜色就是均匀分布的。最后是模式，这里设置的是循环渐变
         paint.setShader(mShader);
 //        paint.setShadowLayer(200,10,10,Color.GRAY);
-        canvas.drawCircle(300,300,120,paint);
+        canvas.drawCircle(300,300,122,paint);
 
         Paint m = new Paint();
         m.setAntiAlias(true);

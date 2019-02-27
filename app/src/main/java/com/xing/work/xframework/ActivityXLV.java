@@ -122,13 +122,13 @@ public class ActivityXLV extends ActivityBase implements XListView.OnPullDownLis
     @Override
     public void onPullDownReleaseToRefresh(View Header) {
         Log.d(TAG,"松开可以刷新,onPullDownReleaseToRefresh()");
-        textView.setText("客官松开就能开始加载数据了内...");
+        textView.setText("松开就能开始加载数据了...");
     }
 
     @Override
     public void onPullDownToRefresh(View Header) {
         Log.d(TAG,"继续拉才能刷新,onPullDownToRefresh()");
-        textView.setText("客官请用力往下拉...");
+        textView.setText("请用力往下拉...");
     }
 
     @Override
@@ -161,12 +161,12 @@ public class ActivityXLV extends ActivityBase implements XListView.OnPullDownLis
 
     @Override
     public void onPullUpReleaseToRefresh(View footer) {
-
+        textView1.setText("松开即可刷新");
     }
 
     @Override
     public void onPullUpToRefresh(View footer) {
-
+        textView1.setText("继续拉");
     }
 
     @Override

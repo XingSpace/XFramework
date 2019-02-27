@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.xing.work.xframework" >
-    package="com.xing.app.xframework">
->>>>>>> d7e4bf290b6ae47e8eb639ae9397951df04d5e49
 
     <application
         android:allowBackup="true"
