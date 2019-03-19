@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+<!--这里增加自定义控件的xml属性-->
     <attr name="xs_orientation">
         <enum name="vertical" value="0"/>
         <enum name="horizontal" value="1"/>
@@ -20,6 +20,10 @@
 
     <declare-styleable name="IconView">
         <attr name="iv_weight" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="MoreIconView">
+        <attr name="miv_weight" format="dimension"/>
     </declare-styleable>
 
 </resources>

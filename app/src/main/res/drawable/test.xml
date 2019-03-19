@@ -6,7 +6,7 @@
     android:viewportHeight="24.0"
     >
 
-    <path android:fillColor="@android:color/holo_blue_bright"
+    <path android:fillColor="@color/colorPrimary"
         android:pathData="M1,1 12,12  2,1z"/>
 
     <path android:fillColor="@color/colorAccent"

@@ -44,6 +44,7 @@ public class IconView extends View {
     private void init(){
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
+        //检查数据
         if (attributeSet!=null){
             typedArray = getContext().obtainStyledAttributes(attributeSet,R.styleable.IconView);
 
@@ -79,6 +80,7 @@ public class IconView extends View {
             }else {
                 distance = mWidth - mRadius*2;
             }
+            //上面的代码用来选择最大可绘制距离
 
         }
     }
@@ -143,7 +145,7 @@ public class IconView extends View {
         // 对不同的指定模式进行判断
         if(specMode==MeasureSpec.EXACTLY){  // 显式指定大小，如40dp或fill_parent
             retSize = specSize + padding;
-        }else{                              // 如使用wrap_content
+        }else{                              // 如果使用wrap_content
             retSize = (isWidth? mWidth + padding : mHeight + padding);
             if(specMode==MeasureSpec.AT_MOST){
                 retSize = Math.min(retSize, specSize);

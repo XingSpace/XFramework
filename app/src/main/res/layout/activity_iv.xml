@@ -6,8 +6,8 @@
     android:layout_height="match_parent">
 
     <com.xing.work.xframework.IconView
-        app:iv_weight="3dp"
-        android:layout_width="24dp"
-        android:layout_height="24dp" />
+        android:layout_width="16dp"
+        android:layout_height="24dp"
+        app:iv_weight="6dp" />
 
 </LinearLayout>
