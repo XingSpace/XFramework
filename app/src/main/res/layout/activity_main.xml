@@ -58,6 +58,12 @@
                 android:text="测试shadow"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
+
+            <Button
+                android:id="@+id/xy_button"
+                android:text="直角坐标轴"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
     </ScrollView>

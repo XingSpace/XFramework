@@ -5,6 +5,9 @@ import android.graphics.Canvas
 import android.util.AttributeSet
 import android.view.View
 
+/**
+ * 尚未完成的"更多"图标类
+ */
 class MoreIconView:View{
 
     var mWeight:Float? = null

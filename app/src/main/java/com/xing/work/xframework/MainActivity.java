@@ -30,7 +30,7 @@ public class MainActivity extends ActivityBase implements View.OnClickListener{
         button4.setOnClickListener(this);
         button5.setOnClickListener(this);
         button6.setOnClickListener(this);
-
+        findViewById(R.id.xy_button).setOnClickListener(this);
     }
 
     @Override
@@ -93,6 +93,10 @@ public class MainActivity extends ActivityBase implements View.OnClickListener{
 //                });
 //
 //                slideDialog1.show();
+                break;
+            case R.id.xy_button:
+                intent.setClass(getContext(),ActivityXY.class);
+                startActivity(intent);
                 break;
         }
     }
