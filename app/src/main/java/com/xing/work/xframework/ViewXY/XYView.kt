@@ -28,6 +28,10 @@ class XYView:View{
     var startX:Float? = null
     var startY:Float? = null
 
+    var startXForUp:Float? = null
+    var startYForUp:Float? = null
+
+
     private val listPoint:MutableList<Coordinate> = mutableListOf()
 
     private val paint:Paint = Paint()
@@ -47,23 +51,29 @@ class XYView:View{
             MotionEvent.ACTION_DOWN -> {
                 startX = event.x
                 startY = event.y
-                return true//表示这个时候，touch事件交给本view来处理了
+
+                startXForUp = event.x
+                startYForUp = event.y
+//                return true//表示这个时候，touch事件交给本view来处理了
             }
 
             MotionEvent.ACTION_MOVE -> {
                 moveX = event.x - startX!!
                 moveY = event.y - startY!!
-//                crossStartX = crossStartX!! + moveX!!.toInt()
-//                crossStartY = crossStartY!! + moveY!!.toInt()
+                crossStartX = crossStartX!! + moveX!!.toInt()
+                crossStartY = crossStartY!! + moveY!!.toInt()
+
+                startX = event.x
+                startY = event.y
 //                oC!!.x = oC!!.x + moveX!!.toInt()
 //                oC!!.y = oC!!.y + moveY!!.toInt()
                 invalidate()
             }
 
             MotionEvent.ACTION_UP -> {
-
-                if (Math.abs(event.x - startX!!) > 10 || Math.abs(event.y - startY!!) > 10){
-                    return super.onTouchEvent(event)
+                //当手指离开屏幕时，所触碰到的点，把它标记出来
+                if (Math.abs(event.x - startXForUp!!) > 10 || Math.abs(event.y - startYForUp!!) > 10){
+                    return true
                 }
 
                 var temp = findPointByXY(event.x,event.y)
@@ -79,12 +89,14 @@ class XYView:View{
             }
         }
 
-        return super.onTouchEvent(event)
+        return true
     }
 
+    /** 根据触摸的位置，得到一个坐标点  返回值是数轴值乘以单位距离*/
     private fun findPointByXY(x:Float,y:Float):Coordinate{
-        var temp:Float? = null
-        temp = x - oC!!.x
+        var temp:Float?
+
+        temp = x - crossStartX!!
         var a:Int = (temp/distance).toInt()
         if (Math.abs(temp)%distance > distance/2){
             if(temp<0){
@@ -94,7 +106,7 @@ class XYView:View{
             }
         }
 
-        temp = y - oC!!.y
+        temp = y - crossStartY!!
         var b:Int = (temp/distance).toInt()
         if (Math.abs(temp)%distance > distance/2){
             if(temp<0){
@@ -104,8 +116,10 @@ class XYView:View{
             }
         }
 
-
-        return Coordinate(a*distance,b*distance)
+        var coordinate = Coordinate(a*distance,b*distance)
+        coordinate.xR = a
+        coordinate.yR = b
+        return coordinate
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
@@ -121,8 +135,8 @@ class XYView:View{
 
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
-        drawCoordinate(canvas!!)
-        drawCross(canvas!!)
+        drawCoordinate(canvas!!)//先绘制坐标轴中的网格
+        drawCross(canvas!!)//再绘制X和Y轴
 
         if (listPoint.size!=0){
             //绘制被点击的点
@@ -133,10 +147,17 @@ class XYView:View{
 
 
     private fun drawPoint(canvas: Canvas){
-        paint.color = resources.getColor(R.color.colorPrimary)
         paint.strokeWidth = sp2px(0f).toFloat()
         for (item:Coordinate in listPoint){
-            canvas.drawCircle(item.x+oC!!.x+moveX!!,item.y+oC!!.y+moveY!!,sp2px(3f).toFloat(),paint)
+            //绘制被标记的点
+            paint.color = resources.getColor(R.color.colorPrimary)
+            canvas.drawCircle(item.x+crossStartX!!,item.y+crossStartY!!,sp2px(3f).toFloat(),paint)
+            //绘制被标记点的坐标
+            paint.color = Color.DKGRAY
+            paint.textSize = sp2px(16f).toFloat()
+            var str = "("+item.xR+","+item.yR+")"
+            var str_width = paint.measureText(str)
+            canvas.drawText(str,item.x+crossStartX!!-str_width/2,item.y+crossStartY!!+sp2px(16f),paint)
         }
     }
 
@@ -146,8 +167,8 @@ class XYView:View{
     private fun drawCross(canvas:Canvas){
         paint.color = resources.getColor(R.color.colorAccent)
         paint.strokeWidth = sp2px(3f).toFloat()
-        canvas.drawLine(0F,crossStartY!!.toFloat()+moveY!!,width!!.toFloat(),crossStartY!!.toFloat()+moveY!!,paint)
-        canvas.drawLine(crossStartX!!.toFloat()+moveX!!,0f,crossStartX!!.toFloat()+moveX!!,height!!.toFloat(),paint)
+        canvas.drawLine(0F,crossStartY!!.toFloat(),width!!.toFloat(),crossStartY!!.toFloat(),paint)
+        canvas.drawLine(crossStartX!!.toFloat(),0f,crossStartX!!.toFloat(),height!!.toFloat(),paint)
     }
 
     /**
@@ -178,17 +199,17 @@ class XYView:View{
     }
 
     private fun drawCoordinateY(canvas: Canvas,tempY:Float){
-        paint.color = Color.DKGRAY
+        paint.color = Color.LTGRAY
         paint.strokeWidth = sp2px(0.5f).toFloat()
 
-        canvas.drawLine(0F,tempY+moveY!!,width!!.toFloat(),tempY+moveY!!,paint)
+        canvas.drawLine(0F,tempY,width!!.toFloat(),tempY,paint)
 //        canvas.drawLine(crossStartX!!.toFloat()+tempX,0f,crossStartX!!.toFloat()+tempX,height!!.toFloat(),paint)
     }
 
     private fun drawCoordinateX(canvas: Canvas,tempX: Float){
-        paint.color = Color.DKGRAY
+        paint.color = Color.LTGRAY
         paint.strokeWidth = sp2px(0.5f).toFloat()
-        canvas.drawLine(tempX+moveX!!,0f,tempX+moveX!!,height!!.toFloat(),paint)
+        canvas.drawLine(tempX,0f,tempX,height!!.toFloat(),paint)
     }
 
     private fun sp2px(spValue: Float): Int {
