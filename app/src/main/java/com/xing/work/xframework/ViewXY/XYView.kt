@@ -135,6 +135,7 @@ class XYView:View{
 
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
+        paint.isAntiAlias = true
         drawCoordinate(canvas!!)//先绘制坐标轴中的网格
         drawCross(canvas!!)//再绘制X和Y轴
 

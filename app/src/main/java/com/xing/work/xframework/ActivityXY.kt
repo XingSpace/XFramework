@@ -15,6 +15,7 @@ class ActivityXY: ActivityBase() {
     }
 
     override fun init() {
-        //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        setTitle("直角坐标轴")
+        setLeftOnClick { finish() }
     }
 }

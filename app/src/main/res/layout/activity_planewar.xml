@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.xing.work.xframework.PlaneWar.WarBack
+        android:id="@+id/warback"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBlack">
+
+        <com.xing.work.xframework.PlaneWar.WarBackground
+            android:id="@+id/back"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.xing.work.xframework.PlaneWar.WarBack>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="wocccc"
+            android:layout_gravity="bottom|center"
+            android:textColor="#ff0000" />
+
+        <com.xing.work.xframework.PlaneWar.Plane
+            android:id="@+id/plane"
+            android:layout_width="48dp"
+            android:layout_height="64dp"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginBottom="96dp" />
+    </FrameLayout>
+
+</android.support.constraint.ConstraintLayout>

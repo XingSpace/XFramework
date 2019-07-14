@@ -37,8 +37,7 @@ public class IconView extends View {
     }
 
     public IconView(Context context) {
-        super(context);
-        init();
+        this(context,null);
     }
 
     private void init(){
@@ -95,7 +94,8 @@ public class IconView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        mPaint.setColor(Color.rgb(0x00,0x00,0x00));
+//        mPaint.setColor(Color.rgb(0x00,0x00,0x00));
+        mPaint.setColor(Color.BLACK);
         mPaint.setStrokeWidth(2*mRadius);
         canvas.drawLine(mRadius+getPaddingLeft(),distance+getPaddingTop(),distance+getPaddingLeft(),mRadius+getPaddingTop(),mPaint);
         canvas.drawLine(mRadius+getPaddingLeft(),distance+getPaddingTop(),distance+getPaddingLeft(),distance*2-mRadius+getPaddingTop(),mPaint);
