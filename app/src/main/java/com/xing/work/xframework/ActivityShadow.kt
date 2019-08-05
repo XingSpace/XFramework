@@ -1,5 +1,6 @@
 package com.xing.work.xframework
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
@@ -38,7 +39,8 @@ class ActivityShadow : ActivityBase(),View.OnClickListener{
 
     }
 
-    var handler:Handler? = object : Handler(){
+    var handler:Handler? = @SuppressLint("HandlerLeak")
+    object : Handler(){
         override fun handleMessage(msg: Message?) {
             super.handleMessage(msg)
             setScale(button2!!,2f)

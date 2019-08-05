@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<resource>
+   <!-- HPRT打印机 -->
+   <usb-device vendor-id="17224" product-id="21892" />
+
+</resource>
