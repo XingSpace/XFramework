@@ -179,8 +179,6 @@ public class ActivitySD extends ActivityBase implements View.OnClickListener {
                             Log.d("idreader score->",sco+"");
                         }
 
-                        Log.d("test finger ->","success getFPRawData "+isInt);
-                        Log.d("test getFPRawData ->", Arrays.toString(data));
                         Bitmap bitmap = DmtFPFinger.DmtBitmapFromRaw(data,256,360);
                         imageView.setImageBitmap(bitmap);
                     }

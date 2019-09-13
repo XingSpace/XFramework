@@ -29,7 +29,7 @@ class ActivityShadow : ActivityBase(),View.OnClickListener{
     }
 
     override fun findViews() {
-        val button = findViewById(R.id.button1)
+        val button = findViewById<Button>(R.id.button1)
         button.setOnClickListener(this)
         button2 = findViewById(R.id.button2) as Button?
         handler!!.sendEmptyMessage(0)

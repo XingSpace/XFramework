@@ -8,7 +8,7 @@ import android.widget.Button;
 import com.xing.work.xframework.PlaneWar.ActivityPlaneWar;
 
 public class MainActivity extends ActivityBase implements View.OnClickListener{
-    private Button button,button2,button3,button4,button5,button6,button7;
+    private Button button,button2,button3,button4,button5,button6,button7,button8;
 
     private int i = 0;
 
@@ -27,6 +27,7 @@ public class MainActivity extends ActivityBase implements View.OnClickListener{
         button5 = (Button)findViewById(R.id.iv_button);
         button6 = (Button)findViewById(R.id.shadow_button);
         button7 = (Button)findViewById(R.id.xsp_button);
+        button8 = (Button)findViewById(R.id.riv);
         button.setOnClickListener(this);
         button2.setOnClickListener(this);
         button3.setOnClickListener(this);
@@ -34,6 +35,7 @@ public class MainActivity extends ActivityBase implements View.OnClickListener{
         button5.setOnClickListener(this);
         button6.setOnClickListener(this);
         button7.setOnClickListener(this);
+        button8.setOnClickListener(this);
         findViewById(R.id.xy_button).setOnClickListener(this);
         findViewById(R.id.fj_button).setOnClickListener(this);
     }
@@ -111,6 +113,11 @@ public class MainActivity extends ActivityBase implements View.OnClickListener{
 
             case R.id.fj_button:
                 intent.setClass(getContext(), ActivityPlaneWar.class);
+                startActivity(intent);
+                break;
+
+            case R.id.riv:
+                intent.setClass(getContext(), ActivityRoundImage.class);
                 startActivity(intent);
                 break;
         }

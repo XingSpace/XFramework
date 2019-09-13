@@ -36,6 +36,7 @@
         <activity android:name=".ActivityXY"/>
         <activity android:name=".ActivityXSP"/>
         <activity android:name=".PlaneWar.ActivityPlaneWar"/>
+        <activity android:name=".ActivityRoundImage"/>
     </application>
 
 </manifest>
