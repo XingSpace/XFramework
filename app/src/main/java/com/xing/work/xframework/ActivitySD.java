@@ -12,6 +12,7 @@ import android.hardware.usb.UsbDevice;
 import android.hardware.usb.UsbInterface;
 import android.hardware.usb.UsbManager;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
@@ -21,6 +22,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dmtfp20.DmtFPFinger;
+import com.huashi.otg.sdk.HSIDCardInfo;
+import com.huashi.otg.sdk.HsOtgApi;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -39,7 +42,7 @@ public class ActivitySD extends ActivityBase implements View.OnClickListener {
     private TextView textView;
     private UsbManager usbManager;
     private UsbDevice device;
-//    HsOtgApi api;
+    HsOtgApi api;
     private static final String ACTION_USB_PERMISSION = "com.USB_PERMISSION";
 
     @Override
@@ -184,30 +187,30 @@ public class ActivitySD extends ActivityBase implements View.OnClickListener {
 
             case R.id.reader:
 
-//                api = new HsOtgApi(handler,getContext());
-//                int ret = api.init();
-//                Log.d("test reader->","ret "+ret);
-//                if (ret == 1){
-//
-//                    ret = api.NotAuthenticate(200,200);
-//                    if (ret != 1){
-//                        textView.setText("卡认证失败"+ret);
-//                        return;
-//                    }
-//
-//
-//                    HSIDCardInfo info = new HSIDCardInfo();
-//                    ret = api.ReadCard(info,200,1300);
-//                    if(ret == 1){
-//                        textView.setText(info.getPeopleName());
-//                        api.Unpack(Environment.getExternalStorageDirectory().getAbsolutePath()+"/wltlib",info.getwltdata());
-//                        Bitmap bitmap = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory().getAbsolutePath()+"/wltlib/zp.bmp");
-//                        imageView.setImageBitmap(bitmap);
-//                        Log.d("url",Environment.getExternalStorageDirectory().getAbsolutePath()+"/wltlib");
-//                    }else {
-//                        textView.setText("读取身份证错误："+ret);
-//                    }
-//                }
+                api = new HsOtgApi(handler,getContext());
+                int ret = api.init();
+                Log.d("test reader->","ret "+ret);
+                if (ret == 1){
+
+                    ret = api.NotAuthenticate(200,200);
+                    if (ret != 1){
+                        textView.setText("卡认证失败"+ret);
+                        return;
+                    }
+
+
+                    HSIDCardInfo info = new HSIDCardInfo();
+                    ret = api.ReadCard(info,200,1300);
+                    if(ret == 1){
+                        textView.setText(info.getPeopleName());
+                        api.Unpack(Environment.getExternalStorageDirectory().getAbsolutePath()+"/wltlib",info.getwltdata());
+                        Bitmap bitmap = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory().getAbsolutePath()+"/wltlib/zp.bmp");
+                        imageView.setImageBitmap(bitmap);
+                        Log.d("url",Environment.getExternalStorageDirectory().getAbsolutePath()+"/wltlib");
+                    }else {
+                        textView.setText("读取身份证错误："+ret);
+                    }
+                }
 
                 break;
         }
