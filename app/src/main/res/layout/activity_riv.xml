@@ -7,10 +7,10 @@
 
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/riv"
-        android:background="@drawable/testsss"
+        android:src="@drawable/testsss"
         android:layout_width="1080px"
         android:layout_height="600px"
-        android:scaleType="fitCenter"
+        android:scaleType="centerInside"
         app:riv_tile_mode="clamp"/>
 
 </FrameLayout>

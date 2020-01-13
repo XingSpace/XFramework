@@ -20,7 +20,7 @@ public class ActivityRoundImage extends ActivityBase {
     @Override
     public void findViews() {
         imageView = (RoundedImageView) findViewById(R.id.riv);
-//        imageView.setCornerRadius(0f,50f,0f,50f);
+        imageView.setCornerRadius(0f,50f,0f,50f);
 
         float radius = imageView.getCornerRadius(Corner.TOP_LEFT);
         Log.d("我草草"," "+radius);
