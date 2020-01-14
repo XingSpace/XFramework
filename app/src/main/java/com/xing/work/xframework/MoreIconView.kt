@@ -54,14 +54,6 @@ class MoreIconView:View{
 
     }
 
-    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-    }
-
-    override fun onDraw(canvas: Canvas?) {
-        super.onDraw(canvas)
-    }
-
     /**
      * 将sp值转换为px值
      */

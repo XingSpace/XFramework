@@ -175,17 +175,9 @@ public class XListView extends ListView implements AbsListView.OnScrollListener,
      */
     @Override
     public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-        if (firstVisibleItem == 0 & getHeader() != null) {
-            down_isRefreshable = true;
-        } else {
-            down_isRefreshable = false;
-        }
+        down_isRefreshable = firstVisibleItem == 0 & getHeader() != null;
 
-        if (firstVisibleItem+visibleItemCount >= totalItemCount-1 & getFooter() != null){
-            up_isRefreshable = true;
-        }else {
-            up_isRefreshable = false;
-        }
+        up_isRefreshable = firstVisibleItem + visibleItemCount >= totalItemCount - 1 & getFooter() != null;
         Log.d("测试上拉刷新",": "+up_isRefreshable);
     }
 

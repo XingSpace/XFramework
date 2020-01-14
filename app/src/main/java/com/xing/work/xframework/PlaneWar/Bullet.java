@@ -7,7 +7,6 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -33,7 +32,7 @@ public class Bullet extends View {
         this(context,null);
     }
 
-    public Bullet(Context context, @Nullable AttributeSet attrs) {
+    public Bullet(Context context, AttributeSet attrs) {
         super(context, attrs);
         paint = new Paint();
         paint.setAntiAlias(true);

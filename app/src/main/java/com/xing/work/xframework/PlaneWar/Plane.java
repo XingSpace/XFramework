@@ -3,7 +3,6 @@ package com.xing.work.xframework.PlaneWar;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -15,7 +14,7 @@ public class Plane extends View {
         this(context,null);
     }
 
-    public Plane(Context context, @Nullable AttributeSet attrs) {
+    public Plane(Context context, AttributeSet attrs) {
         super(context, attrs);
         setBackgroundColor(Color.WHITE);
     }

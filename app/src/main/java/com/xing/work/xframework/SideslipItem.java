@@ -34,9 +34,9 @@ public class SideslipItem extends LinearLayout {
     private void init(){
         LayoutInflater.from(getContext()).inflate(R.layout.sideslip_item,this,true);
 
-        rl_Left = (RelativeLayout)findViewById(R.id.bottom_left);
-        rl_Right = (RelativeLayout)findViewById(R.id.bottom_right);
-        linearLayout = (LinearLayout)findViewById(R.id.main);
+        rl_Left = findViewById(R.id.bottom_left);
+        rl_Right = findViewById(R.id.bottom_right);
+        linearLayout = findViewById(R.id.main);
         Log.d("已经执行完毕","执行加载xml");
     }
 

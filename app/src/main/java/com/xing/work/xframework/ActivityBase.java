@@ -3,12 +3,13 @@ package com.xing.work.xframework;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.fragment.app.FragmentActivity;
 
 /**
  * Created by wangxing on 16/9/2.
@@ -72,23 +73,23 @@ public abstract class ActivityBase extends FragmentActivity {
 
         topBar = root.findViewById(R.id.top_bar);
 
-        bottomBar = (LinearLayout) root.findViewById(R.id.bottom_bar);
+        bottomBar = root.findViewById(R.id.bottom_bar);
 
-        leftLayout = (LinearLayout) topBar.findViewById(R.id.left_layout);
+        leftLayout = topBar.findViewById(R.id.left_layout);
 
-        rightLayout = (LinearLayout) topBar.findViewById(R.id.right_layout);
+        rightLayout = topBar.findViewById(R.id.right_layout);
 
-        title = (TextView) topBar.findViewById(R.id.top_title);
+        title = topBar.findViewById(R.id.top_title);
 
-        leftText = (TextView) leftLayout.findViewById(R.id.left_text);
+        leftText = leftLayout.findViewById(R.id.left_text);
 
-        leftImage = (ImageView) leftLayout.findViewById(R.id.left_image);
+        leftImage = leftLayout.findViewById(R.id.left_image);
 
-        rightText = (TextView) rightLayout.findViewById(R.id.right_text);
+        rightText = rightLayout.findViewById(R.id.right_text);
 
-        rightImage = (ImageView) rightLayout.findViewById(R.id.right_image);
+        rightImage = rightLayout.findViewById(R.id.right_image);
 
-        LinearLayout linearLayout = (LinearLayout)root.findViewById(R.id.main);
+        LinearLayout linearLayout = root.findViewById(R.id.main);
 
         linearLayout.addView(getLayoutInflater().inflate(layoutResID, null),
                 new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));

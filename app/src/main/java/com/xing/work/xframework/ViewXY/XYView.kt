@@ -124,8 +124,8 @@ class XYView:View{
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-        height = getMeasuredHeight()
-        width = getMeasuredWidth()
+        height = measuredHeight
+        width = measuredWidth
         crossStartY = height!!/2 - sp2px(1.5f)
         crossStartX = width!!/2 - sp2px(1.5f)
         oC = Coordinate(crossStartX!!.toFloat(),crossStartY!!.toFloat())
@@ -137,11 +137,11 @@ class XYView:View{
         super.onDraw(canvas)
         paint.isAntiAlias = true
         drawCoordinate(canvas!!)//先绘制坐标轴中的网格
-        drawCross(canvas!!)//再绘制X和Y轴
+        drawCross(canvas)//再绘制X和Y轴
 
         if (listPoint.size!=0){
             //绘制被点击的点
-            drawPoint(canvas!!)
+            drawPoint(canvas)
         }
 
     }

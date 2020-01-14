@@ -70,7 +70,7 @@ public class TestAdapter extends BaseAdapter implements RefreshAdapter{
 
         if (convertView == null){
             convertView = LayoutInflater.from(context).inflate(R.layout.test_item,parent,false);
-            viewHolder.textView = (TextView) convertView.findViewById(R.id.text);
+            viewHolder.textView = convertView.findViewById(R.id.text);
             convertView.setTag(viewHolder);
         }else {
             viewHolder = (ViewHolder) convertView.getTag();

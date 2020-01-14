@@ -2,8 +2,6 @@ package com.xing.work.xframework.PlaneWar;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -13,20 +11,20 @@ import android.widget.FrameLayout;
  */
 public class WarBack extends FrameLayout implements RemoveChildView {
 
-    public WarBack(@NonNull Context context) {
+    public WarBack(Context context) {
         super(context);
     }
 
-    public WarBack(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public WarBack(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public WarBack(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public WarBack(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
     @SuppressLint("NewApi")
-    public WarBack(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public WarBack(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 

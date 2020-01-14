@@ -98,7 +98,7 @@ public class XSeekBar extends View {
             mSCircleColor = typedArray.getColor(R.styleable.XSeekBar_xs_SCircleColor,Color.argb(255,0xff,0xff,0xff));
 
             int temp = typedArray.getInt(R.styleable.XSeekBar_xs_orientation,1);
-            isVertical = (temp == 0)? true : false;
+            isVertical = temp == 0;
 
             typedArray.recycle();
         }else {
@@ -145,7 +145,7 @@ public class XSeekBar extends View {
 
         mUnit = mMaxWidth / mMax;//设置单位距离
 
-        float f[] = new float[2];
+        float[] f = new float[2];
         f[1] = mBlank+mRadius;//设置圆心的Y轴坐标
 
         f[0] = f[1] + mUnit*mProgress;
@@ -172,7 +172,7 @@ public class XSeekBar extends View {
 
         mUnit = mMaxWidth / mMax;//设置单位距离
 
-        float f[] = new float[2];
+        float[] f = new float[2];
         f[0] = mBlank+mRadius;//设置圆心的X轴坐标
         f[1] = mMaxWidth + f[0] - mUnit*mProgress;
 
@@ -530,11 +530,7 @@ public class XSeekBar extends View {
         float rightAngle2 = Math.abs(ballCenterY - TballCenterY) * Math.abs(ballCenterY - TballCenterY);
         float hypot = (r1+r2)*(r1+r2);
 
-        if (rightAngle+rightAngle2 < hypot){
-            return true;
-        }
-
-        return false;
+        return rightAngle + rightAngle2 < hypot;
     }
 
 }

@@ -53,13 +53,13 @@ public class ActivitySD extends ActivityBase implements View.OnClickListener {
 
     @Override
     public void findViews() {
-        button = (Button) findViewById(R.id.button1);
-        button1 = (Button) findViewById(R.id.button2);
-        button2 = (Button) findViewById(R.id.print);
-        button3 = (Button) findViewById(R.id.fingger);
-        imageView = (ImageView)findViewById(R.id.image);
-        reader = (Button) findViewById(R.id.reader);
-        textView = (TextView) findViewById(R.id.text);
+        button = findViewById(R.id.button1);
+        button1 = findViewById(R.id.button2);
+        button2 = findViewById(R.id.print);
+        button3 = findViewById(R.id.fingger);
+        imageView = findViewById(R.id.image);
+        reader = findViewById(R.id.reader);
+        textView = findViewById(R.id.text);
 
         button.setOnClickListener(this);
         button1.setOnClickListener(this);
@@ -236,7 +236,7 @@ public class ActivitySD extends ActivityBase implements View.OnClickListener {
             String action = intent.getAction();
             if (ACTION_USB_PERMISSION.equals(action)){
                 synchronized (this) {
-                    UsbDevice usbDevice = (UsbDevice)intent.getParcelableExtra(UsbManager.EXTRA_DEVICE);
+                    UsbDevice usbDevice = intent.getParcelableExtra(UsbManager.EXTRA_DEVICE);
                     if (intent.getBooleanExtra(UsbManager.EXTRA_PERMISSION_GRANTED, false)) {
                         //user choose YES for your previously popup window asking for grant perssion for this usb device
                         if(null != usbDevice){
@@ -256,7 +256,7 @@ public class ActivitySD extends ActivityBase implements View.OnClickListener {
             Log.d("test vendor id ->",""+usbDevice.getVendorId());
 
 
-            Log.d("test",String.valueOf(Print.IsOpened())+"");
+            Log.d("test", Print.IsOpened() +"");
             if (!Print.IsOpened()){
                 return;
             }

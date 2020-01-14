@@ -5,7 +5,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Handler;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -36,7 +35,7 @@ public class WarBackground extends View implements Runnable{
         this(context,null);
     }
 
-    public WarBackground(Context context, @Nullable AttributeSet attrs) {
+    public WarBackground(Context context, AttributeSet attrs) {
         super(context, attrs);
         paint = new Paint();
         paint.setAntiAlias(true);

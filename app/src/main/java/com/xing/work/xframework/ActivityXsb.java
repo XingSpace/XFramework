@@ -23,8 +23,8 @@ public class ActivityXsb extends ActivityBase implements XSeekBar.OnXSeekBarList
 
     @Override
     public void findViews() {
-        textView = (TextView) findViewById(R.id.text);
-        xSeekBar = (XSeekBar) findViewById(R.id.xsb3);
+        textView = findViewById(R.id.text);
+        xSeekBar = findViewById(R.id.xsb3);
         xSeekBar.setMax(15);
         xSeekBar.setMaxWeight(5);
         xSeekBar.setRadius(20);

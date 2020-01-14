@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
@@ -35,7 +34,7 @@ public class ActivityPlaneWar extends ActivityBase implements View.OnTouchListen
     private boolean isGoing = true;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_planewar);
         setBottomBarVisible(false);
@@ -43,10 +42,10 @@ public class ActivityPlaneWar extends ActivityBase implements View.OnTouchListen
 
     @Override
     public void findViews() {
-        plane = (Plane) findViewById(R.id.plane);
-        warBackground = (WarBackground)findViewById(R.id.back);
-        warback = (WarBack) findViewById(R.id.warback);
-        textView = (TextView)findViewById(R.id.text);
+        plane = findViewById(R.id.plane);
+        warBackground = findViewById(R.id.back);
+        warback = findViewById(R.id.warback);
+        textView = findViewById(R.id.text);
 
         list_Bullet = new BulletBelt();
         enemies = new Enemies();
@@ -252,7 +251,7 @@ public class ActivityPlaneWar extends ActivityBase implements View.OnTouchListen
                     }
                 }
                 try {
-                    main.sleep(10);
+                    sleep(10);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

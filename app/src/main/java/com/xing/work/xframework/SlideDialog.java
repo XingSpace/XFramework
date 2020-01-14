@@ -107,25 +107,25 @@ public class SlideDialog extends Dialog{
 
         root = findViewById(R.id.back_ground);
 
-        textView = (TextView) root.findViewById(R.id.testTitle);
+        textView = root.findViewById(R.id.testTitle);
         //设置该dialog的title
 
-        frameLayout = (FrameLayout) root.findViewById(R.id.main);
+        frameLayout = root.findViewById(R.id.main);
         //要被添加View的。。。和主内容的地方
 
-        titleFrame = (FrameLayout) root.findViewById(R.id.titles);
+        titleFrame = root.findViewById(R.id.titles);
         //上方title
 
-        linearLayout = (LinearLayout) root.findViewById(R.id.bottom);
+        linearLayout = root.findViewById(R.id.bottom);
         //下方Action bottom
 
-        leftButton = (Button)root.findViewById(R.id.left_button);
+        leftButton = root.findViewById(R.id.left_button);
         //默认将有三个按钮，这个代表左边那个
 
-        centerButton = (Button)root.findViewById(R.id.center_button);
+        centerButton = root.findViewById(R.id.center_button);
         //中间那个
 
-        rightButton = (Button)root.findViewById(R.id.right_button);
+        rightButton = root.findViewById(R.id.right_button);
         //右边那个
 
         switch (layoutResID){
@@ -133,15 +133,15 @@ public class SlideDialog extends Dialog{
                 //默认模式
                 frameLayout.addView(LayoutInflater.from(mContext).inflate(layoutResID,null)
                         ,new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT));
-                defaultText = (TextView)frameLayout.findViewById(R.id.defaultText);
+                defaultText = frameLayout.findViewById(R.id.defaultText);
                 break;
 
             case PROGRESS:
                 //进度条模式
                 frameLayout.addView(LayoutInflater.from(mContext).inflate(layoutResID,null)
                         ,new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT));
-                progressBar = (ProgressBar)frameLayout.findViewById(R.id.progressBar2);
-                percent = (TextView)frameLayout.findViewById(R.id.percent);
+                progressBar = frameLayout.findViewById(R.id.progressBar2);
+                percent = frameLayout.findViewById(R.id.percent);
                 break;
 
             default:

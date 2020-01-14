@@ -122,11 +122,7 @@ public class GameEngine {
         float rightAngle2 = Math.abs(ballCenterY - TballCenterY) * Math.abs(ballCenterY - TballCenterY);
         float hypot = (r1+r2)*(r1+r2);
 
-        if (rightAngle+rightAngle2 < hypot){
-            return true;
-        }
-
-        return false;
+        return rightAngle + rightAngle2 < hypot;
     }
 
     public static boolean isCollsionWithRect(int x1, int y1, int w1, int h1, int x2, int

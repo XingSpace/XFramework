@@ -33,11 +33,11 @@ public class ActivityXLV extends ActivityBase implements XListView.OnPullDownLis
 
         xListView.setHeader(R.layout.header_listview);//给listview设置一个头部文件
         xListView.setOnPullDownListener(this);//设置下拉监听
-        textView = (TextView) xListView.getHeader().findViewById(R.id.text2);
+        textView = xListView.getHeader().findViewById(R.id.text2);
 
         xListView.setFooter(R.layout.header_listview);
         xListView.setOnPullUpListener(this);
-        textView1 = (TextView) xListView.getFooter().findViewById(R.id.text2);
+        textView1 = xListView.getFooter().findViewById(R.id.text2);
         //状态测试用的textview
 
         list.add("你吃药了吗");
@@ -69,7 +69,7 @@ public class ActivityXLV extends ActivityBase implements XListView.OnPullDownLis
 
     @Override
     public void findViews() {
-        xListView = (XListView)findViewById(R.id.xlistview);
+        xListView = findViewById(R.id.xlistview);
         testAdapter = new TestAdapter(getContext());
         list = new ArrayList();
     }

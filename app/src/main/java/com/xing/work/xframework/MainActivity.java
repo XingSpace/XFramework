@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.xing.app.myutils.Utils.PermissionUtil;
 import com.xing.work.xframework.PlaneWar.ActivityPlaneWar;
 
 public class MainActivity extends ActivityBase implements View.OnClickListener{
@@ -20,14 +21,14 @@ public class MainActivity extends ActivityBase implements View.OnClickListener{
 
     @Override
     public void findViews() {
-        button = (Button)findViewById(R.id.hp_button);
-        button2 = (Button)findViewById(R.id.sd_button);
-        button3 = (Button)findViewById(R.id.xlv_button);
-        button4 = (Button)findViewById(R.id.xsb_button);
-        button5 = (Button)findViewById(R.id.iv_button);
-        button6 = (Button)findViewById(R.id.shadow_button);
-        button7 = (Button)findViewById(R.id.xsp_button);
-        button8 = (Button)findViewById(R.id.riv);
+        button = findViewById(R.id.hp_button);
+        button2 = findViewById(R.id.sd_button);
+        button3 = findViewById(R.id.xlv_button);
+        button4 = findViewById(R.id.xsb_button);
+        button5 = findViewById(R.id.iv_button);
+        button6 = findViewById(R.id.shadow_button);
+        button7 = findViewById(R.id.xsp_button);
+        button8 = findViewById(R.id.riv);
         button9 = findViewById(R.id.socket);
         button.setOnClickListener(this);
         button2.setOnClickListener(this);
@@ -55,6 +56,11 @@ public class MainActivity extends ActivityBase implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
+
+        if(!PermissionUtil.permissionEntry(MainActivity.this,getApplicationContext(),true,299)){
+            return;
+        }
+
         switch (v.getId()) {
             case R.id.hp_button:
                 intent.setClass(getContext(), ActivityHP.class);
