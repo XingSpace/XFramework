@@ -49,6 +49,8 @@ dependencies {
     implementation files('libs/OTG+大唐指纹仪.jar')
     implementation 'com.makeramen:roundedimageview:2.3.0'
     implementation project(path: ':app-release')
+    implementation 'jp.wasabeef:glide-transformations:4.1.0'
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
 }
 repositories {
     //修改成国内阿里云的maven地址，否则某些地方下载不下来

@@ -178,23 +178,23 @@ class XYView:View{
     private fun drawCoordinate(canvas: Canvas){
         var tempX:Int? = crossStartX
         while (tempX!! < width!!){
-            tempX = tempX + distance.toInt()
+            tempX += distance.toInt()
             drawCoordinateX(canvas,tempX.toFloat())
         }
         tempX = crossStartX
         while (tempX!! > 0){
-            tempX = tempX - distance.toInt()
+            tempX -= distance.toInt()
             drawCoordinateX(canvas,tempX.toFloat())
         }
 
         var tempY:Int? = crossStartY
         while (tempY!!<height!!){
-            tempY = tempY + distance.toInt()
+            tempY += distance.toInt()
             drawCoordinateY(canvas,tempY.toFloat())
         }
         tempY = crossStartY
         while (tempY!!>0){
-            tempY = tempY - distance.toInt()
+            tempY -= distance.toInt()
             drawCoordinateY(canvas,tempY.toFloat())
         }
     }

@@ -4,4 +4,6 @@
 ![image](https://github.com/XingSpace/XFramework/blob/master/heartProgress.png)
 
 ![image](https://github.com/XingSpace/XFramework/blob/master/ActivityBase.png)
+
+![image](https://github.com/XingSpace/XFramework/blob/master/Glide_Transformation.png)
 。。。

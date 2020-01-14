@@ -2,15 +2,44 @@
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
-    <com.makeramen.roundedimageview.RoundedImageView
-        android:id="@+id/riv"
-        android:src="@drawable/testsss"
-        android:layout_width="1080px"
-        android:layout_height="600px"
-        android:scaleType="centerInside"
-        app:riv_tile_mode="clamp"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/riv"
+                android:layout_width="match_parent"
+                android:layout_height="400px" />
+
+            <ImageView
+                android:id="@+id/blur"
+                android:layout_width="match_parent"
+                android:layout_height="400px" />
+
+            <ImageView
+                android:id="@+id/round"
+                android:layout_width="match_parent"
+                android:layout_height="400px" />
+
+            <ImageView
+                android:id="@+id/border"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="400px"
+                android:layout_height="400px" />
+
+            <ImageView
+                android:id="@+id/multi"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="400px" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </FrameLayout>
