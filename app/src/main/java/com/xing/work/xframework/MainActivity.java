@@ -9,7 +9,7 @@ import com.xing.app.myutils.Utils.PermissionUtil;
 import com.xing.work.xframework.PlaneWar.ActivityPlaneWar;
 
 public class MainActivity extends ActivityBase implements View.OnClickListener{
-    private Button button,button2,button3,button4,button5,button6,button7,button8,button9;
+    private Button button,button2,button3,button4,button5,button6,button7,button8,button9,button10;
 
     private int i = 0;
 
@@ -30,6 +30,7 @@ public class MainActivity extends ActivityBase implements View.OnClickListener{
         button7 = findViewById(R.id.xsp_button);
         button8 = findViewById(R.id.riv);
         button9 = findViewById(R.id.socket);
+        button10 = findViewById(R.id.table);
         button.setOnClickListener(this);
         button2.setOnClickListener(this);
         button3.setOnClickListener(this);
@@ -39,6 +40,7 @@ public class MainActivity extends ActivityBase implements View.OnClickListener{
         button7.setOnClickListener(this);
         button8.setOnClickListener(this);
         button9.setOnClickListener(this);
+        button10.setOnClickListener(this);
         findViewById(R.id.xy_button).setOnClickListener(this);
         findViewById(R.id.fj_button).setOnClickListener(this);
     }
@@ -90,25 +92,8 @@ public class MainActivity extends ActivityBase implements View.OnClickListener{
             case R.id.shadow_button:
                 intent.setClass(getContext(),ActivityShadow.class);
                 startActivity(intent);
-
-//                final SlideDialog slideDialog1 = new SlideDialog(getContext());
-//
-//                slideDialog1.setContentView(SlideDialog.DEFAULT);
-//
-//                slideDialog1.setTitles("默认的对话框");
-//                slideDialog1.setMessage("默认情况下弹出的对话框");
-//
-//                slideDialog1.setCenterButtonVisible(View.GONE);
-//
-//                slideDialog1.setRightButton("CANCEL", new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        slideDialog1.dismiss();
-//                    }
-//                });
-//
-//                slideDialog1.show();
                 break;
+
             case R.id.xy_button:
                 intent.setClass(getContext(),ActivityXY.class);
                 startActivity(intent);
@@ -131,6 +116,11 @@ public class MainActivity extends ActivityBase implements View.OnClickListener{
 
             case R.id.socket:
                 intent.setClass(getContext(),ActivitySocket.class);
+                startActivity(intent);
+                break;
+
+            case R.id.table:
+                intent.setClass(getContext(),ActivitySTV.class);
                 startActivity(intent);
                 break;
         }

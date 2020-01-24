@@ -112,13 +112,8 @@ public class HeartProgress extends View {
                 MAX_HEIGHT = DEFAULT_HEIGHT;
             } else {
 
-                s1 = s1.replaceAll("d", "");
-                s1 = s1.replaceAll("i", "");
-                s1 = s1.replaceAll("p", "");
-
-                s2 = s2.replaceAll("d", "");
-                s2 = s2.replaceAll("i", "");
-                s2 = s2.replaceAll("p", "");
+                s1 = s1.replaceAll("[a-zA-Z]", "");
+                s2 = s2.replaceAll("[a-zA-Z]", "");
 
                 MAX_WIDTH = sp2px(Float.parseFloat(s1));
                 MAX_HEIGHT = sp2px(Float.parseFloat(s2));
