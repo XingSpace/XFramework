@@ -96,7 +96,7 @@ public class SlideDialog extends Dialog{
         lp.windowAnimations = R.style.SlideDialogAnimation;//设置滑出、滑入动画
         lp.width = LayoutParams.WRAP_CONTENT;
         lp.height = LayoutParams.WRAP_CONTENT;
-        lp.gravity = Gravity.CENTER;
+        lp.gravity = Gravity.RIGHT | Gravity.BOTTOM;
         window.setAttributes(lp);
 
     }
